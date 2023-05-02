@@ -6,7 +6,6 @@
                     <p>Tambah Data Kandang</p>
                     <a class="px-6 bg-yellow-300 rounded" href="{{ route('peternak.kandang') }}">Back</a>
                 </div>
-                <hr>
                 <div class="p-6">
                     <form action="{{ route('peternak.kandang-create') }}" method="POST">
                         @csrf

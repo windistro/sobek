@@ -6,7 +6,6 @@
                     <p>Tambah Data Telur</p>
                     <a class="px-6 bg-yellow-300 rounded" href="{{ route('peternak.telur') }}">Back</a>
                 </div>
-                <hr>
                 <div class="p-6">
                     <form action="{{ route('peternak.telur-create') }}" method="POST">
                         @csrf

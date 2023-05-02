@@ -1,18 +1,17 @@
 <x-peternak-layout>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 font-bold">
+            <div class="bg-white overflow-hidden shadow-md sm:rounded-lg">
+                <div class="p-6 pb-0 text-[#006D77] font-bold text-lg">
                     Data Bebek
                 </div>
-                <hr>
                 @if ($message = Session::get('success'))
                     <div class="bg-cyan-300 p-4 rounded">
                         <p>{{ $message }}</p>
                     </div>
                 @endif
                 <div class="p-6">
-                    <a class="p-3 bg-lime-400 rounded" href="{{ route('peternak.bebek-create') }}">Tambah Data</a>
+                    <a class="p-3 bg-[#006D77] rounded text-white" href="{{ route('peternak.bebek-create') }}">Tambah Data</a>
                     <table class="table-auto border-separate border border-slate-300 w-full mt-4">
                         <thead>
                             <tr class="bg-slate-200">

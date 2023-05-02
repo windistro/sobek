@@ -3,7 +3,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 flex text-gray-900 font-bold justify-between">
-                    <p>Tambah Akun</p>
+                    <p>Tambah Data</p>
                     <a class="px-6 bg-yellow-300 rounded" href="{{ route('admin.peternak') }}">Back</a>
                 </div>
                 <hr>

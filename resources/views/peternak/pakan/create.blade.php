@@ -6,7 +6,6 @@
                     <p>Tambah Data Pakan</p>
                     <a class="px-6 bg-yellow-300 rounded" href="{{ route('peternak.pakan') }}">Back</a>
                 </div>
-                <hr>
                 <div class="p-6">
                     <form action="{{ route('peternak.pakan-create') }}" method="POST">
                         @csrf

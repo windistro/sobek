@@ -6,7 +6,6 @@
                     <p>Tambah Data Bebek</p>
                     <a class="px-6 bg-yellow-300 rounded" href="{{ route('peternak.bebek') }}">Back</a>
                 </div>
-                <hr>
                 <div class="p-6">
                     <form action="{{ route('peternak.bebek-create') }}" method="POST">
                         @csrf
