@@ -16,7 +16,7 @@
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
+            @include('peternak.navbar-peternak')
 
             <!-- Page Heading -->
             @if (isset($header))
@@ -34,4 +34,7 @@
         </div>
     </body>
     <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        feather.replace()
+    </script>
 </html>
