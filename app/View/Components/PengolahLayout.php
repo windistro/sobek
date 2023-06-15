@@ -12,6 +12,7 @@ class PengolahLayout extends Component
      */
     public function render(): View
     {
-        return view('pengolah.pengolah');
+        // return view('pengolah.pengolah');
+        return view('pengolah.pengolah-test');
     }
 }

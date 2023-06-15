@@ -13,10 +13,13 @@ return new class extends Migration
     {
         Schema::create('bebeks', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('umur');
-            $table->string('status', 20);
-            $table->bigInteger('telurWeekly');
-            $table->foreignId('kandang_id')->nullable();
+            $table->string('tag', 20);
+            $table->string('tempat', 20);
+            $table->bigInteger('jumlah');
+            $table->string('kelamin', 20);
+            $table->string('umur', 20);
+            $table->string('kategori', 20);
+            $table->foreignId('kandang_id')->constrained();
         });
     }
 

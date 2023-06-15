@@ -24,7 +24,7 @@
 
         <div class="mt-4">
             <x-input-label for="gender" :value="__('Jenis Kelamin')" />
-            <select name="gender" id="gender" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" >
+            <select name="gender" id="gender" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" :value="old('gender')">
                 <option value="L">Laki laki</option>
                 <option value="P">Perempuan</option>
             </select>
@@ -39,7 +39,7 @@
 
         <div class="mt-4">
             <x-input-label for="birthdate" :value="__('Tanggal Lahir')" />
-            <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500" type="date" id="birthdate" name="birthdate" required autocomplete="birthdate">
+            <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500" type="date" id="birthdate" name="birthdate" :value="old('birthdate')" required autocomplete="birthdate">
             <x-input-error :messages="$errors->get('birthdate')" class="mt-2" />
         </div>
 
@@ -81,7 +81,7 @@
                 {{ __('Already registered?') }}
             </a>
 
-            <x-primary-button class="ml-4">
+            <x-primary-button class="ml-4 bg-black">
                 {{ __('Register') }}
             </x-primary-button>
         </div>

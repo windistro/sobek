@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('kandangs', function (Blueprint $table) {
+        Schema::create('status_invests', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('totalPembatas');
-            $table->bigInteger('bebekPembatas');
-            $table->bigInteger('totalBebek');
+            $table->string('status');
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('invest_id')->constrained();
+            $table->bigInteger('nominal');
+            $table->timestamps();
         });
     }
 
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('kandangs');
+        Schema::dropIfExists('status_invests');
     }
 };

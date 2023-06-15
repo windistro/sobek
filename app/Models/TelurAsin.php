@@ -14,5 +14,6 @@ class TelurAsin extends Model
         'totalTelurAsin',
         'tanggalPembuatan',
         'tanggalKadaluarsa',
+        'user_id'
     ];
 }

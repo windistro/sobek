@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('telur_asins', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('totalTelurAsin');
             $table->date('tanggalPembuatan');
+            $table->bigInteger('totalTelurAsin');
             $table->date('tanggalKadaluarsa');
+            $table->foreignId('user_id')->constrained();
         });
     }
 

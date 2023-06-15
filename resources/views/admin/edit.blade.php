@@ -1,12 +1,11 @@
-<x-admin-layout>
+<x-dashboard-layout>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 flex text-gray-900 font-bold justify-between">
                     <p>Edit Akun</p>
-                    <a class="px-6 bg-yellow-300 rounded" href="{{ route('admin.peternak') }}">Back</a>
                 </div>
-                <hr>
+                <a class="px-6 py-2 mx-6 bg-white rounded text-red-400 border border-red-400" href="{{ route('admin.peternak') }}">Kembali</a>
                 <div class="p-6">
                     <form action="{{ route('admin.update', $user->id) }}" method="POST">
                         @csrf
@@ -17,7 +16,6 @@
                             <x-input-error :messages="$errors->get('name')" class="mt-2" />
                         </div>
                 
-                        <!-- Email Address -->
                         <div class="mt-4">
                             <x-input-label for="email" :value="__('Email')" />
                             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="$user->email" required autocomplete="username" />
@@ -32,7 +30,7 @@
                 
                         <div class="mt-4">
                             <x-input-label for="gender" :value="__('Jenis Kelamin')" />
-                            <select name="gender" id="gender" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" >
+                            <select name="gender" id="gender" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" :value="$user->gender" >
                                 <option value="L">Laki laki</option>
                                 <option value="P">Perempuan</option>
                             </select>
@@ -83,8 +81,8 @@
                 
                             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" /> --}}
                         {{-- </div> --}}
-                        <div class="flex items-center justify-end mt-4">
-                            <x-primary-button class="ml-4">
+                        <div class="flex items-center justify-center mt-4">
+                            <x-primary-button class="ml-4 bg-[#FFB813]">
                                 {{ __('Edit') }}
                             </x-primary-button>
                     </form>
@@ -92,4 +90,4 @@
             </div>
         </div>
     </div>
-</x-admin-layout>
+</x-dashboard-layout>

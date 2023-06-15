@@ -33,7 +33,7 @@ class RegisteredUserController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:50'],
             'email' => ['required', 'string', 'email:rfc,dns', 'max:50', 'unique:'.User::class],
-            'no' => ['required', 'integer', 'max:50'],
+            'no' => ['required', 'integer'],
             'gender' => ['required'],
             'address' => ['required', 'string'],
             'birthdate' => ['required', 'date'],
@@ -56,6 +56,18 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        $url = '';
+        if($request->user()->role === 'admin') {
+            $url = 'admin/dashboard';
+        } elseif($request->user()->role === 'Pengolah') {
+            $url = 'pengolah/dashboard';
+        } elseif($request->user()->role === 'Peternak') {
+            $url = 'peternak/dashboard';
+        } elseif($request->user()->role === 'Pelanggan') {
+            $url = 'pelanggan/dashboard';
+        }
+
+        // return redirect(RouteServiceProvider::HOME);
+        return redirect()->intended($url);
     }
 }

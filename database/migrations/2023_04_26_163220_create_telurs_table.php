@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('telurs', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('telurPembatas');
-            $table->bigInteger('totalTelur');
-            $table->foreignId('kandang_id')->nullable();
+            $table->foreignId('kandang_id')->constrained();
+            $table->bigInteger('telurEarned');
+            $table->date('tanggal');
         });
     }
 

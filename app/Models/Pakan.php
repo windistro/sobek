@@ -11,7 +11,9 @@ class Pakan extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'stokKatul',
-        'stokKosentrat',
+        'nama',
+        'stok',
+        'catatan',
+        'user_id'
     ];
 }

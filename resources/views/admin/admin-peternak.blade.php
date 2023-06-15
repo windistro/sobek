@@ -2,17 +2,16 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 font-bold">
-                    Data Akun Peternak
+                <div class="p-6 pb-0 text-[#006D77] font-bold">
+                    Data Akun
                 </div>
-                <hr>
                 @if ($message = Session::get('success'))
                     <div class="bg-cyan-300 p-4 rounded">
                         <p>{{ $message }}</p>
                     </div>
                 @endif
                 <div class="p-6">
-                    <a class="p-3 bg-lime-400 rounded" href="{{ route('admin.create') }}">Tambah Akun</a>
+                    <a class="p-3 bg-[#006D77] text-white rounded" href="{{ route('admin.create') }}">Tambah Akun</a>
                     <table class="table-auto border-separate border border-slate-300 w-full mt-4">
                         <thead>
                             <tr class="bg-slate-200">
@@ -30,7 +29,6 @@
                         <tbody>
                             @foreach($user as $akun)
                                 <tr>
-                                    {{-- <td class="p-2 text-center">{{ $loop->iteration }}</td> --}}
                                     <td class="p-2 text-center">{{ $akun->id }}</td>
                                     <td class="p-2 text-center">{{ $akun->name }}</td>
                                     <td class="p-2 text-center">{{ $akun->email }}</td>

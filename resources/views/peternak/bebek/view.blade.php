@@ -16,9 +16,13 @@
                         <thead>
                             <tr class="bg-slate-200">
                                 <th class="p-1 text-sm font-semibold tracking-wide">Id</th>
+                                <th class="p-1 text-sm font-semibold tracking-wide">Tag</th>
+                                <th class="p-1 text-sm font-semibold tracking-wide">Tempat Kandang</th>
+                                <th class="p-1 text-sm font-semibold tracking-wide">Jumlah Bebek</th>
+                                <th class="p-1 text-sm font-semibold tracking-wide">Kelamin</th>
                                 <th class="p-1 text-sm font-semibold tracking-wide">Umur</th>
-                                <th class="p-1 text-sm font-semibold tracking-wide">Status</th>
-                                <th class="p-1 text-sm font-semibold tracking-wide">Telur perminggu</th>
+                                <th class="p-1 text-sm font-semibold tracking-wide">Kategorri</th>
+                                <th class="p-1 text-sm font-semibold tracking-wide">Id Kandang</th>
                                 <th class="p-1 text-sm font-semibold tracking-wide">Action</th>
                             </tr>
                         </thead>
@@ -26,9 +30,13 @@
                             @foreach($duck as $bebek)
                                 <tr>
                                     <td class="p-2 text-center">{{ $bebek->id }}</td>
+                                    <td class="p-2 text-center">{{ $bebek->tag }}</td>
+                                    <td class="p-2 text-center">{{ $bebek->tempat }}</td>
+                                    <td class="p-2 text-center">{{ $bebek->jumlah }}</td>
+                                    <td class="p-2 text-center">{{ $bebek->kelamin }}</td>
                                     <td class="p-2 text-center">{{ $bebek->umur }}</td>
-                                    <td class="p-2 text-center">{{ $bebek->status }}</td>
-                                    <td class="p-2 text-center">{{ $bebek->telurWeekly }}</td>
+                                    <td class="p-2 text-center">{{ $bebek->kategori }}</td>
+                                    <td class="p-2 text-center">{{ $bebek->kandang_id }}</td>
                                     <td class="p-2 flex justify-center">
                                         <a href=" {{ route('peternak.bebek-edit', $bebek->id) }}"><i data-feather="edit"></i></a>
                                     </td>

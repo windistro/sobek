@@ -10,9 +10,13 @@ class Telur extends Model
     use HasFactory;
     public $timestamps = false;
 
+    public function kandang() {
+        return $this->belongsTo(Kandang::Class, 'kandang_id');
+    }
+
     protected $fillable = [
-        'telurPembatas',
-        'totalTelur',
+        'telurEarned',
+        'tanggal',
         'kandang_id'
     ];
 }

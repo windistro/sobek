@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\BahanBaku;
 use App\Models\TelurAsin;
+use App\Models\Penjualan;
 
 class PengolahController extends Controller
 {
@@ -23,6 +24,10 @@ class PengolahController extends Controller
         $salted = TelurAsin::all();
         return view('pengolah/view-telurasin', compact('salted'));
     }
+    public function ViewPenjualan() {
+        $sell = Penjualan::all();
+        return view('pengolah.penjualan.view', compact('sell'));
+    }
 
     public function CreateBaku() {
         return view('pengolah/create-bahanbaku');
@@ -30,6 +35,9 @@ class PengolahController extends Controller
 
     public function CreateTelur() {
         return view('pengolah/create-telurasin');
+    }
+    public function CreatePenjualan() {
+        return view('pengolah.penjualan.create');
     }
 
     public function EditBaku($id) {
@@ -41,16 +49,25 @@ class PengolahController extends Controller
         $salted = TelurAsin::where('id', $id)->first();
         return view('pengolah/edit-telurasin', compact('salted'));
     }
+    public function EditPenjualan($id) {
+        $sell = Penjualan::where('id', $id)->first();
+        return view('pengolah.penjualan.edit', compact('sell'));
+    }
 
     public function storeBaku(Request $request) {
         $request->validate([
-            'stokTelurBebek' => ['required', 'integer'],
-            'stokGaram' => ['required', 'integer']
+            'nama' => ['required', 'string'],
+            'jenis' => ['required', 'string'],
+            'stok' => ['required', 'integer'],
+            'catatan' => ['required', 'string']
         ]);
 
         $baku = BahanBaku::create([
-            'stokTelurBebek' => $request->stokTelurBebek,
-            'stokGaram' => $request->stokGaram,
+            'nama' => $request->nama,
+            'jenis' => $request->jenis,
+            'stok' => $request->stok,
+            'catatan' => $request->catatan,
+            'user_id' => auth()->id(),
         ]);
 
         return redirect()->route('pengolah.bahanbaku')->with('success', 'Data berhasil ditambah');
@@ -58,24 +75,43 @@ class PengolahController extends Controller
 
     public function storeTelur(Request $request) {
         $request->validate([
-            'totalTelurAsin' => ['required', 'integer'],
             'tanggalPembuatan' => ['required', 'date'],
+            'totalTelurAsin' => ['required', 'integer'],
             'tanggalKadaluarsa' => ['required', 'date']
         ]);
 
         $salted = TelurAsin::create([
-            'totalTelurAsin' => $request->totalTelurAsin,
             'tanggalPembuatan' => $request->tanggalPembuatan,
+            'totalTelurAsin' => $request->totalTelurAsin,
             'tanggalKadaluarsa' => $request->tanggalKadaluarsa,
+            'user_id' => auth()->id(),
         ]);
 
         return redirect()->route('pengolah.telurasin')->with('success', 'Data berhasil ditambah');
     }
+    public function storePenjualan(Request $request) {
+        $request->validate([
+            'tanggal' => ['required', 'date'],
+            'total' => ['required', 'integer'],
+            'terjual' => ['required', 'integer'],
+        ]);
+
+        $sell = Penjualan::create([
+            'tanggal' => $request->tanggal,
+            'total' => $request->total,
+            'terjual' => $request->terjual,
+            'user_id' => auth()->id(),
+        ]);
+
+        return redirect()->route('pengolah.penjualan')->with('success', 'Data berhasil ditambah');
+    }
 
     public function updateBaku(Request $request, $id) {
         $request->validate([
-            'stokTelurBebek' => ['required', 'integer'],
-            'stokGaram' => ['required', 'integer']
+            'nama' => ['required', 'string'],
+            'jenis' => ['required', 'string'],
+            'stok' => ['required', 'integer'],
+            'catatan' => ['required', 'string']
         ]);
 
         $baku = BahanBaku::findOrFail($id);
@@ -86,8 +122,8 @@ class PengolahController extends Controller
 
     public function updateTelur(Request $request, $id) {
         $request->validate([
-            'totalTelurAsin' => ['required', 'integer'],
             'tanggalPembuatan' => ['required', 'date'],
+            'totalTelurAsin' => ['required', 'integer'],
             'tanggalKadaluarsa' => ['required', 'date']
         ]);
 
@@ -95,5 +131,18 @@ class PengolahController extends Controller
         $salted->update($request->all());
 
         return redirect()->route('pengolah.telurasin')->with('success', 'Data berhasil diupdate');
+    }
+
+    public function updatePenjualan(Request $request) {
+        $request->validate([
+            'tanggal' => ['required', 'date'],
+            'total' => ['required', 'integer'],
+            'terjual' => ['required', 'integer'],
+        ]);
+
+        $sell = Penjualan::findOrFail($id);
+        $sell->update($request->all());
+
+        return redirect()->route('pengolah.penjualan')->with('success', 'Data berhasil diupdate');
     }
 }

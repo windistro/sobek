@@ -17,8 +17,10 @@
                         <thead>
                             <tr class="bg-slate-200">
                                 <th class="p-1 text-sm font-semibold tracking-wide">Id</th>
-                                <th class="p-1 text-sm font-semibold tracking-wide">Stok Telur Bebek</th>
-                                <th class="p-1 text-sm font-semibold tracking-wide">Stok Garam</th>
+                                <th class="p-1 text-sm font-semibold tracking-wide">Nama Bahan Baku</th>
+                                <th class="p-1 text-sm font-semibold tracking-wide">Jenis</th>
+                                <th class="p-1 text-sm font-semibold tracking-wide">Stok</th>
+                                <th class="p-1 text-sm font-semibold tracking-wide">Catatan</th>
                                 <th class="p-1 text-sm font-semibold tracking-wide">Action</th>
                             </tr>
                         </thead>
@@ -26,8 +28,10 @@
                             @foreach($baku as $ingredients)
                                 <tr>
                                     <td class="p-2 text-center">{{ $ingredients->id }}</td>
-                                    <td class="p-2 text-center">{{ $ingredients->stokTelurBebek }}</td>
-                                    <td class="p-2 text-center">{{ $ingredients->stokGaram }}</td>
+                                    <td class="p-2 text-center">{{ $ingredients->nama }}</td>
+                                    <td class="p-2 text-center">{{ $ingredients->jenis }}</td>
+                                    <td class="p-2 text-center">{{ $ingredients->stok }}</td>
+                                    <td class="p-2 text-center">{{ $ingredients->catatan }}</td>
                                     <td class="p-2 flex justify-center">
                                         <a href=" {{ route('pengolah.bahanbaku-edit', $ingredients->id) }}"><i data-feather="edit"></i></a>
                                     </td>

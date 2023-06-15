@@ -11,7 +11,10 @@ class BahanBaku extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'stokTelurBebek',
-        'stokGaram',
+        'nama',
+        'jenis',
+        'stok',
+        'catatan',
+        'user_id'
     ];
 }

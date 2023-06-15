@@ -17,8 +17,8 @@
                         <thead>
                             <tr class="bg-slate-200">
                                 <th class="p-1 text-sm font-semibold tracking-wide">Id</th>
-                                <th class="p-1 text-sm font-semibold tracking-wide">Total Telur Asin</th>
                                 <th class="p-1 text-sm font-semibold tracking-wide">Tanggal Pembuatan</th>
+                                <th class="p-1 text-sm font-semibold tracking-wide">Total Telur Asin</th>
                                 <th class="p-1 text-sm font-semibold tracking-wide">Tanggal Kadaluarsa</th>
                                 <th class="p-1 text-sm font-semibold tracking-wide">Action</th>
                             </tr>
@@ -27,8 +27,8 @@
                             @foreach($salted as $telur)
                                 <tr>
                                     <td class="p-2 text-center">{{ $telur->id }}</td>
-                                    <td class="p-2 text-center">{{ $telur->totalTelurAsin }}</td>
                                     <td class="p-2 text-center">{{ $telur->tanggalPembuatan }}</td>
+                                    <td class="p-2 text-center">{{ $telur->totalTelurAsin }}</td>
                                     <td class="p-2 text-center">{{ $telur->tanggalKadaluarsa }}</td>
                                     <td class="p-2 flex justify-center">
                                         <a href=" {{ route('pengolah.telurasin-edit', $telur->id) }}"><i data-feather="edit"></i></a>

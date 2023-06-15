@@ -12,6 +12,7 @@ class PeternakLayout extends Component
      */
     public function render(): View
     {
-        return view('peternak.peternak');
+        // return view('peternak.peternak');
+        return view('peternak.peternak-test');
     }
 }

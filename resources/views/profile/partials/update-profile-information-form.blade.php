@@ -5,7 +5,7 @@
         </h2>
 
         <p class="mt-1 text-sm text-gray-600">
-            {{ __("Update your account's profile information and email address.") }}
+            {{ __("Update your account's profile information.") }}
         </p>
     </header>
 
@@ -18,7 +18,7 @@
         @method('patch')
 
         <div>
-            <x-input-label for="name" :value="__('Name')" />
+            <x-input-label for="name" :value="__('Nama')" />
             <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
@@ -45,6 +45,32 @@
                     @endif
                 </div>
             @endif
+        </div>
+        <div>
+            <x-input-label for="no" :value="__('Nomor')" />
+            <x-text-input id="no" class="block mt-1 w-full" type="text" inputmode="numeric" name="no" :value="$user->no" required autocomplete="no" />
+            <x-input-error :messages="$errors->get('no')" class="mt-2" />
+        </div>
+
+        <div>
+            <x-input-label for="gender" :value="__('Jenis Kelamin')" />
+            <select name="gender" id="gender" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" :value="$user->gender" >
+                <option value="L">Laki laki</option>
+                <option value="P">Perempuan</option>
+            </select>
+            <x-input-error :messages="$errors->get('gender')" class="mt-2" />
+        </div>
+        
+        <div>
+            <x-input-label for="address" :value="__('Alamat')" />
+            <x-text-input id="address" class="block mt-1 w-full" type="text" name="address" :value="$user->address" required autocomplete="address" />
+            <x-input-error :messages="$errors->get('address')" class="mt-2" />
+        </div>
+
+        <div>
+            <x-input-label for="birthdate" :value="__('Tanggal Lahir')" />
+            <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500" type="date" id="birthdate" name="birthdate" :value="$user->birthdate" required autocomplete="birthdate">
+            <x-input-error :messages="$errors->get('birthdate')" class="mt-2" />
         </div>
 
         <div class="flex items-center gap-4">

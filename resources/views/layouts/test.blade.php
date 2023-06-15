@@ -15,7 +15,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100 flex overflow-hidden">
+        <div class="min-h-screen bg-gray-100 flex flex-initial overflow-hidden">
             @include('layouts.sidebar')
 
             <!-- Page Heading -->
@@ -28,7 +28,7 @@
             @endif
 
             <!-- Page Content -->
-            <main>
+            <main class="w-screen">
                 {{ $slot }}
             </main>
         </div>

@@ -10,9 +10,23 @@ class Kandang extends Model
     use HasFactory;
     public $timestamps = false;
 
+    public function user() {
+        return $this->belongsTo(User::Class, 'user_id');
+    }
+
+    public function bebek() {
+        return $this->hasMany(Bebek::Class);
+    }
+
+    public function telur() {
+        return $this->hasMany(Bebek::Class);
+    }
+
     protected $fillable = [
-        'totalPembatas',
-        'bebekPembatas',
+        'name',
+        'kategori',
+        'kapasitas',
         'totalBebek',
+        'user_id'
     ];
 }

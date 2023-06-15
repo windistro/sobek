@@ -13,8 +13,11 @@ return new class extends Migration
     {
         Schema::create('bahan_bakus', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('stokTelurBebek');
-            $table->bigInteger('stokGaram');
+            $table->string('nama');
+            $table->string('jenis');
+            $table->bigInteger('stok');
+            $table->string('catatan');
+            $table->foreignId('user_id')->constrained();
         });
     }
 
